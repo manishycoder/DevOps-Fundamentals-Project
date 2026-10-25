@@ -1,15 +1,18 @@
 
 #!/bin/bash
 
-set -e
+echo "Checking Apache service..."
 
-BACKUP_DIR="$HOME/Backup"
-TIMESTAMP=$(date +"%Y-%m-%d_%H-%M-%S")
+if systemctl is-active --quiet apache2; then
+    echo "Apache is running successfully."
+else
+    echo "Apache is stopped. Attempting restart..."
+    sudo systemctl restart apache2
 
-mkdir -p "$BACKUP_DIR"
-
-tar -czf "$BACKUP_DIR/website-$TIMESTAMP.tar.gz" \
-    -C /var/www html
-
-echo "Website backup created successfully."
-echo "Backup saved in $BACKUP_DIR"
+    if systemctl is-active --quiet apache2; then
+        echo "Apache restarted successfully."
+    else
+        echo "ERROR: Apache could not be restarted."
+        exit 1
+    fi
+fi
