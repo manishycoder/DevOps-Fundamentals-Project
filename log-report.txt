@@ -1,0 +1,19 @@
+
+LINUX LOG MONITORING REPORT
+
+Project: DevOps Fundamentals Mini Project
+Server: AWS Ubuntu EC2
+
+1. Failed Login Attempts
+Results: To be checked on the Ubuntu server.
+
+2. SSH Login Activity
+Results: To be checked on the Ubuntu server.
+
+3. System Errors
+Results: To be checked on the Ubuntu server.
+
+4. Warning Messages
+Results: To be checked on the Ubuntu server.
+
+Report Date: 25 October 2026
